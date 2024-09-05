@@ -1,0 +1,3 @@
+rootProject.name = 'MaPay'
+include 'member-service'
+
