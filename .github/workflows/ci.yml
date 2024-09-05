@@ -22,13 +22,13 @@ jobs:
           chmod a+x ktlint
       - name: Run Ktlint
         run: |
-          ./ktlint --android --reporter=checkstyle,output=ktlint-report.xml
+          ./ktlint --reporter=checkstyle,output=build/reports/ktlint/ktlint-report.xml
         continue-on-error: true
       - name: Upload Ktlint Report
         uses: actions/upload-artifact@v3
         with:
           name: ktlint-report
-          path: ktlint-report.xml
+          path: build/reports/ktlint/ktlint-report.xml
 
   build_job:
     runs-on: ubuntu-latest
