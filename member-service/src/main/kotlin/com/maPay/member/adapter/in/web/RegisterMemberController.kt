@@ -1,8 +1,8 @@
 package com.maPay.member.adapter.`in`.web
 
 import com.maPay.member.adapter.`in`.web.dto.RegisterMemberRequest
+import com.maPay.member.adapter.out.persistence.dto.RegisterMemberResponse
 import com.maPay.member.application.port.`in`.RegisterMemberUseCase
-import com.maPay.member.domain.Member
 import common.annotation.WebAdapter
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -19,8 +19,8 @@ class RegisterMemberController(
 ) {
 
     @PostMapping
-    fun resisterMember(@RequestBody request: RegisterMemberRequest): ResponseEntity<Member> {
-        val member = registerMemberUseCase.registerMember(request.mapToCommand())
-        return ResponseEntity.ok().body(member)
+    fun resisterMember(@RequestBody request: RegisterMemberRequest): ResponseEntity<RegisterMemberResponse> {
+        val registerMemberResponse = registerMemberUseCase.registerMember(request.mapToCommand())
+        return ResponseEntity.ok().body(registerMemberResponse)
     }
 }
